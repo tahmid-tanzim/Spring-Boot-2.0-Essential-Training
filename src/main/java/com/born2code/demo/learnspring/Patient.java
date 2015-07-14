@@ -1,12 +1,12 @@
 package com.born2code.demo.learnspring;
 
+import java.util.List;
+
 public class Patient {
 
 	private int id;
 	private String name;
-	private int nationalId;
-	private Address address;
-
+	private List<String> emergencyContact;
 	public Patient() {
 
 	}
@@ -16,11 +16,6 @@ public class Patient {
 		this.name = name;
 	}
 
-	public static Patient getInstance(int id, String name) {
-		System.out.println("Creating Patient using factory method.");
-		return new Patient(id, name);
-	}
-	
 	public int getId() {
 		return id;
 	}
@@ -37,25 +32,17 @@ public class Patient {
 		this.name = name;
 	}
 
-	public int getNationalId() {
-		return nationalId;
+	public List<String> getEmergencyContact() {
+		return emergencyContact;
 	}
 
-	public void setNationalId(int nationalId) {
-		this.nationalId = nationalId;
-	}
-
-	public Address getAddress() {
-		return address;
-	}
-
-	public void setAddress(Address address) {
-		this.address = address;
-	}
-
+	public void setEmergencyContact(List<String> emergencyContact) {
+		this.emergencyContact = emergencyContact;
+	}	
+	
 	@Override
 	public String toString() {
-		return "Patient [id=" + id + ", name=" + name + ", nationalId=" + nationalId + ", address=" + address + "]";
+		return "Patient [id=" + id + ", name=" + name + "]";
 	}
 
 	public void onCreate() {
@@ -69,5 +56,4 @@ public class Patient {
 	public void speak() {
 		System.out.println("Help Me!");
 	}
-
 }
