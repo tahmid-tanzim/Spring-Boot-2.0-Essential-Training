@@ -11,6 +11,6 @@
 		id="fileWriter">
 	</bean>
 	<bean class="com.born2code.demo.learnspring.Logger" id="logger"
-		autowire="byName">
+		autowire="constructor">
 	</bean>
 </beans>
