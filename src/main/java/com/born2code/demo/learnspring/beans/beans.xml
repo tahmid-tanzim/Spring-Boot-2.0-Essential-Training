@@ -9,7 +9,17 @@
 			<list>
 				<ref bean="contact1" />
 				<ref bean="contact3" />
+				<bean class="com.born2code.demo.learnspring.EmergencyContact">
+					<property name="name" value="Samsung"></property>
+					<property name="phoneNumber" value="01722336699"></property>
+				</bean>
 			</list>
+		</property>
+		<property name="critalContact">
+			<bean class="com.born2code.demo.learnspring.EmergencyContact">
+				<property name="name" value="iPhone"></property>
+				<property name="phoneNumber" value="01711223344"></property>
+			</bean>
 		</property>
 	</bean>
 
@@ -22,12 +32,12 @@
 		<property name="name" value="Shuvin"></property>
 		<property name="phoneNumber" value="01711336656"></property>
 	</bean>
-	
+
 	<bean class="com.born2code.demo.learnspring.EmergencyContact" id="contact3">
 		<property name="name" value="Obin"></property>
 		<property name="phoneNumber" value="01711336657"></property>
 	</bean>
-	
+
 	<bean class="com.born2code.demo.learnspring.EmergencyContact" id="contact4">
 		<property name="name" value="Fatiha"></property>
 		<property name="phoneNumber" value="01711336658"></property>

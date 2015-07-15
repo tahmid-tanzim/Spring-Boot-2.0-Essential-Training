@@ -6,6 +6,7 @@ public class Patient {
 
 	private int id;
 	private String name;
+	private EmergencyContact critalContact;
 	private List<EmergencyContact> emergencyContact;
 
 	public Patient() {
@@ -41,9 +42,17 @@ public class Patient {
 		this.emergencyContact = emergencyContact;
 	}
 
+	public EmergencyContact getCritalContact() {
+		return critalContact;
+	}
+
+	public void setCritalContact(EmergencyContact critalContact) {
+		this.critalContact = critalContact;
+	}
+
 	@Override
 	public String toString() {
-		return "Patient [id=" + id + ", name=" + name + "]";
+		return "Patient [id=" + id + ", name=" + name + ", Critical Contact=" + critalContact + "]";
 	}
 
 	public void speak() {
