@@ -2,15 +2,16 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	default-init-method="init" default-destroy-method="destroy"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd"
+	default-autowire="byType"
+	default-autowire-candidates="*Writer">
 
-	<bean class="com.born2code.demo.learnspring.ConsoleWriter"
-		id="consoleWriter">
+	<bean class="com.born2code.demo.learnspring.ConsoleWriter" id="consoleWriter">
 	</bean>
-	<bean class="com.born2code.demo.learnspring.FileWriter"
-		id="fileWriter">
+	<bean class="com.born2code.demo.learnspring.FileWriter" id="fileWriter">
 	</bean>
-	<bean class="com.born2code.demo.learnspring.Logger" id="logger"
-		autowire="constructor">
+	<bean class="com.born2code.demo.learnspring.FileWriter" id="fileWriter2">
+	</bean>
+	<bean class="com.born2code.demo.learnspring.Logger" id="logger">
 	</bean>
 </beans>

@@ -1,13 +1,8 @@
 package com.born2code.demo.learnspring;
 
 public class Logger {
-	private LogWriter consoleWriter;
-	private LogWriter fileWriter;
-
-	public Logger(LogWriter consoleWriter, LogWriter fileWriter) {
-		this.consoleWriter = consoleWriter;
-		this.fileWriter = fileWriter;
-	}
+	private ConsoleWriter consoleWriter;
+	private FileWriter fileWriter;
 
 	public LogWriter getConsoleWriter() {
 		return consoleWriter;
