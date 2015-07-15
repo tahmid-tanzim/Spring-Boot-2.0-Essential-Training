@@ -2,24 +2,34 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	default-init-method="init" default-destroy-method="destroy"
-	xmlns:p="http://www.springframework.org/schema/p" xmlns:c="http://www.springframework.org/schema/c"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-
-	<bean id="patient" class="com.born2code.demo.learnspring.Patient"
-		scope="singleton" init-method="onCreate" destroy-method="onDestroy"
-		c:id="9" c:name="Yellow">
+	<bean id="patient" class="com.born2code.demo.learnspring.Patient">
 		<property name="emergencyContact">
 			<list>
-				<value>Name1</value>
-				<value>Name2</value>
-				<value>Name3</value>
-				<value>Name4</value>
-				<value>Name5</value>
+				<ref bean="contact1" />
+				<ref bean="contact3" />
 			</list>
 		</property>
 	</bean>
 
-	<bean class="com.born2code.demo.learnspring.PatientFactory" id="patientfactory">
+	<bean class="com.born2code.demo.learnspring.EmergencyContact" id="contact1">
+		<property name="name" value="Lupin"></property>
+		<property name="phoneNumber" value="01711336655"></property>
+	</bean>
+
+	<bean class="com.born2code.demo.learnspring.EmergencyContact" id="contact2">
+		<property name="name" value="Shuvin"></property>
+		<property name="phoneNumber" value="01711336656"></property>
+	</bean>
+	
+	<bean class="com.born2code.demo.learnspring.EmergencyContact" id="contact3">
+		<property name="name" value="Obin"></property>
+		<property name="phoneNumber" value="01711336657"></property>
+	</bean>
+	
+	<bean class="com.born2code.demo.learnspring.EmergencyContact" id="contact4">
+		<property name="name" value="Fatiha"></property>
+		<property name="phoneNumber" value="01711336658"></property>
 	</bean>
 </beans>

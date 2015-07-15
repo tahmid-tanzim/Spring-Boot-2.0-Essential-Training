@@ -6,7 +6,8 @@ public class Patient {
 
 	private int id;
 	private String name;
-	private List<String> emergencyContact;
+	private List<EmergencyContact> emergencyContact;
+
 	public Patient() {
 
 	}
@@ -32,27 +33,19 @@ public class Patient {
 		this.name = name;
 	}
 
-	public List<String> getEmergencyContact() {
+	public List<EmergencyContact> getEmergencyContact() {
 		return emergencyContact;
 	}
 
-	public void setEmergencyContact(List<String> emergencyContact) {
+	public void setEmergencyContact(List<EmergencyContact> emergencyContact) {
 		this.emergencyContact = emergencyContact;
-	}	
-	
+	}
+
 	@Override
 	public String toString() {
 		return "Patient [id=" + id + ", name=" + name + "]";
 	}
 
-	public void onCreate() {
-		System.out.println("Patient created - " + this);
-	}	
-	
-	public void onDestroy() {
-		System.out.println("Patient destroy");
-	}		
-	
 	public void speak() {
 		System.out.println("Help Me!");
 	}
