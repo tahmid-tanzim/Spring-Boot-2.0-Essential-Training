@@ -12,11 +12,8 @@ public class App
     public static void main( String[] args )
     {
     	ApplicationContext context = new ClassPathXmlApplicationContext("com/born2code/demo/learnspring/beans/beans.xml");
-    	Patient patient = (Patient) context.getBean("patient");
-    	System.out.println(patient);
-    	for( EmergencyContact contact : patient.getEmergencyContact()){
-    		System.out.println(contact);
-    	}
+    	ContactBook contactbooks = (ContactBook) context.getBean("contactbook");
+    	System.out.println(contactbooks);
     	((ClassPathXmlApplicationContext) context).close();
     }
 }

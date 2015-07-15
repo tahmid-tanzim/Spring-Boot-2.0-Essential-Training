@@ -42,4 +42,14 @@
 		<property name="name" value="Fatiha"></property>
 		<property name="phoneNumber" value="01711336658"></property>
 	</bean>
+	<bean id="contactbook" class="com.born2code.demo.learnspring.ContactBook">
+		<property name="contacts">
+			<map>
+				<entry key="first" value-ref="contact1"></entry>
+				<entry key="second" value-ref="contact2"></entry>
+				<entry key="third" value-ref="contact3"></entry>
+				<entry key="fourth" value-ref="contact4"></entry>
+			</map>
+		</property>
+	</bean>
 </beans>
