@@ -4,52 +4,13 @@
 	default-init-method="init" default-destroy-method="destroy"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-	<bean id="patient" class="com.born2code.demo.learnspring.Patient">
-		<property name="emergencyContact">
-			<list>
-				<ref bean="contact1" />
-				<ref bean="contact3" />
-				<bean class="com.born2code.demo.learnspring.EmergencyContact">
-					<property name="name" value="Samsung"></property>
-					<property name="phoneNumber" value="01722336699"></property>
-				</bean>
-			</list>
-		</property>
-		<property name="critalContact">
-			<bean class="com.born2code.demo.learnspring.EmergencyContact">
-				<property name="name" value="iPhone"></property>
-				<property name="phoneNumber" value="01711223344"></property>
-			</bean>
-		</property>
+	<bean class="com.born2code.demo.learnspring.ConsoleWriter"
+		id="consoleWriter">
 	</bean>
-
-	<bean class="com.born2code.demo.learnspring.EmergencyContact" id="contact1">
-		<property name="name" value="Lupin"></property>
-		<property name="phoneNumber" value="01711336655"></property>
+	<bean class="com.born2code.demo.learnspring.FileWriter"
+		id="fileWriter">
 	</bean>
-
-	<bean class="com.born2code.demo.learnspring.EmergencyContact" id="contact2">
-		<property name="name" value="Shuvin"></property>
-		<property name="phoneNumber" value="01711336656"></property>
-	</bean>
-
-	<bean class="com.born2code.demo.learnspring.EmergencyContact" id="contact3">
-		<property name="name" value="Obin"></property>
-		<property name="phoneNumber" value="01711336657"></property>
-	</bean>
-
-	<bean class="com.born2code.demo.learnspring.EmergencyContact" id="contact4">
-		<property name="name" value="Fatiha"></property>
-		<property name="phoneNumber" value="01711336658"></property>
-	</bean>
-	<bean id="contactbook" class="com.born2code.demo.learnspring.ContactBook">
-		<property name="contacts">
-			<map>
-				<entry key="first" value-ref="contact1"></entry>
-				<entry key="second" value-ref="contact2"></entry>
-				<entry key="third" value-ref="contact3"></entry>
-				<entry key="fourth" value-ref="contact4"></entry>
-			</map>
-		</property>
+	<bean class="com.born2code.demo.learnspring.Logger" id="logger"
+		autowire="byType">
 	</bean>
 </beans>

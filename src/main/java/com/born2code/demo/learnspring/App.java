@@ -12,8 +12,9 @@ public class App
     public static void main( String[] args )
     {
     	ApplicationContext context = new ClassPathXmlApplicationContext("com/born2code/demo/learnspring/beans/beans.xml");
-    	ContactBook contactbooks = (ContactBook) context.getBean("contactbook");
-    	System.out.println(contactbooks);
+    	Logger logger = (Logger) context.getBean("logger");
+    	logger.writeConsole("Inside Console");
+    	logger.writeFile("Inside File");
     	((ClassPathXmlApplicationContext) context).close();
     }
 }
