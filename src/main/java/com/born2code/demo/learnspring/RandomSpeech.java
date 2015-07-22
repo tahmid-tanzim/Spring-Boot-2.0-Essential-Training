@@ -1,7 +1,9 @@
 package com.born2code.demo.learnspring;
 
 import java.util.Random;
+import org.springframework.stereotype.Component;
 
+@Component
 public class RandomSpeech {
 	private static String[] texts = {
 			"I'll be back",
