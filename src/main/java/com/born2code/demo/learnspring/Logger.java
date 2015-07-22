@@ -1,8 +1,9 @@
 package com.born2code.demo.learnspring;
 
-import javax.annotation.Resource;
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
+import javax.inject.Inject;
+import javax.inject.Named;
 
 import org.springframework.jmx.export.annotation.ManagedResource;
 
@@ -10,12 +11,13 @@ public class Logger {
 	private ConsoleWriter consoleWriter;
 	private LogWriter fileWriter;
 
-	@Resource
+	@Inject
+	@Named(value="consoleWriter2")
 	public void setConsoleWriter(ConsoleWriter consoleWriter) {
 		this.consoleWriter = consoleWriter;
 	}
 
-	@Resource(name="newFileWriter")
+	@Inject
 	public void setFileWriter(LogWriter fileWriter) {
 		this.fileWriter = fileWriter;
 	}
