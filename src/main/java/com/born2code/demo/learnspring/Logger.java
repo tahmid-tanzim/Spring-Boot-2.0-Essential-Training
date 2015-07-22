@@ -8,7 +8,11 @@ public class Logger {
 	// @Autowired
 	private FileWriter fileWriter;
 
-	@Autowired
+	public Logger(){
+		
+	}
+	
+	@Autowired(required=false)
 	public Logger(ConsoleWriter consoleWriter) {
 		this.consoleWriter = consoleWriter;
 	}
@@ -18,21 +22,23 @@ public class Logger {
 	}
 
 	// @Autowired
-	 public void setConsoleWriter(ConsoleWriter consoleWriter) {
-	 this.consoleWriter = consoleWriter;
-	 }
+	public void setConsoleWriter(ConsoleWriter consoleWriter) {
+		this.consoleWriter = consoleWriter;
+	}
 
 	public LogWriter getFileWriter() {
 		return fileWriter;
 	}
 
-	 @Autowired
-	 public void setFileWriter(FileWriter fileWriter) {
-	 this.fileWriter = fileWriter;
-	 }
+	@Autowired
+	public void setFileWriter(FileWriter fileWriter) {
+		this.fileWriter = fileWriter;
+	}
 
 	public void writeConsole(String text) {
-		consoleWriter.write(text);
+		if (consoleWriter != null) {
+			consoleWriter.write(text);
+		}
 	}
 
 	public void writeFile(String text) {
