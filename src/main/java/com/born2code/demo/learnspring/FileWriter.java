@@ -1,8 +1,8 @@
 package com.born2code.demo.learnspring;
 
-import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Component;
 
-@Qualifier("file-writer")
+@Component("filewriter")
 public class FileWriter implements LogWriter {
 
 	public void write(String text) {
