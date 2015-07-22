@@ -1,6 +1,8 @@
 package com.born2code.demo.learnspring;
 
 import javax.annotation.Resource;
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
 
 import org.springframework.jmx.export.annotation.ManagedResource;
 
@@ -25,5 +27,15 @@ public class Logger {
 	public void writeFile(String text) {
 		fileWriter.write(text);
 	}
+	
+	@PostConstruct
+	public void init(){
+		System.out.println("Creating BEAN");
+	}
 
+	@PreDestroy
+	public void destroy(){
+		System.out.println("Destroying BEAN");
+	}	
+	
 }
