@@ -12,8 +12,8 @@ public class App
     public static void main( String[] args )
     {
     	ApplicationContext context = new ClassPathXmlApplicationContext("com/born2code/demo/learnspring/beans/beans.xml");
-    	Cat cat = (Cat) context.getBean("cat");
-    	cat.speak();
+    	Parrot bird = (Parrot) context.getBean("parrot");
+    	bird.speak();
     	((ClassPathXmlApplicationContext) context).close();
     }
 }
