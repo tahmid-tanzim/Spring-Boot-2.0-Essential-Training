@@ -1,30 +1,19 @@
 package com.born2code.demo.learnspring;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
+import javax.annotation.Resource;
+
+import org.springframework.jmx.export.annotation.ManagedResource;
 
 public class Logger {
-	// @Autowired
 	private ConsoleWriter consoleWriter;
-	// @Autowired
 	private LogWriter fileWriter;
 
-	public LogWriter getConsoleWriter() {
-		return consoleWriter;
-	}
-
-	@Autowired
-	@Qualifier("consolewriter")
+	@Resource
 	public void setConsoleWriter(ConsoleWriter consoleWriter) {
 		this.consoleWriter = consoleWriter;
 	}
 
-	public LogWriter getFileWriter() {
-		return fileWriter;
-	}
-
-	@Autowired
-	@Qualifier("file-writer")
+	@Resource(name="newFileWriter")
 	public void setFileWriter(LogWriter fileWriter) {
 		this.fileWriter = fileWriter;
 	}
