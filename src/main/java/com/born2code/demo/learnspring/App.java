@@ -22,6 +22,9 @@ public class App {
 			for (Notice notice : notices) {
 				System.out.println(notice);
 			}
+			
+			Notice notice = noticesDao.getNotice(6);
+			System.out.println("Notice ID: 6 -- " + notice);
 		} catch (CannotGetJdbcConnectionException ex) {
 			System.out.println("Could not get JDBC connection.");
 		} catch (DataAccessException ex) {
