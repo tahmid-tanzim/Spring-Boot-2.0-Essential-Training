@@ -22,24 +22,27 @@ public class App {
 			// System.out.println(noticesDao.delete(3) ? "Deleted ID: 3
 			// Successfully!" : "Sorry! Cannot delete");
 
-			Notice notice1 = new Notice("Roby1", "roby1@gmail.com", "Hello Roby!");
-			Notice notice2 = new Notice("Roby2", "roby2@gmail.com", "Hello Roby!");
-			Notice notice3 = new Notice("Roby3", "roby3@gmail.com", "Hello Roby!");
+    		Notice notice1 = new Notice(6, "Bobby4", "bobby1@livingoncodes.com", "Late fees will be imposed!");
+    		Notice notice2 = new Notice(8, "Bobby2", "bobby2@livingoncodes.com", "Late fees will be imposed!");
+    		Notice notice3 = new Notice(7, "Bobby5", "bobby3@livingoncodes.com", "Late fees will be imposed!");
+    		
+    		List<Notice> noticeList = new ArrayList<Notice>();
+    		
+    		noticeList.add(notice1);
+    		noticeList.add(notice2);
+    		noticeList.add(notice3);
+    		
+    		
+    		noticesDao.create(noticeList);
+    		    		
+        	List<Notice> notices = noticesDao.getNotices();
+        	
+        	for(Notice notice: notices) {
+        		System.out.println(notice);
+        	}
 
-			List<Notice> noticeList = new ArrayList<Notice>();
-			noticeList.add(notice1);
-			noticeList.add(notice2);
-			noticeList.add(notice3);
-
-			noticesDao.create(noticeList);
-
-			List<Notice> notices = noticesDao.getNotices();
-			for (Notice notice : notices) {
-				System.out.println(notice);
-			}
-
-			Notice notice = noticesDao.getNotice(6);
-			System.out.println("Notice ID: 6 -- " + notice);
+//			Notice notice = noticesDao.getNotice(6);
+//			System.out.println("Notice ID: 6 -- " + notice);
 		} catch (CannotGetJdbcConnectionException ex) {
 			System.out.println("Could not get JDBC connection.");
 		} catch (DataAccessException ex) {
