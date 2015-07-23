@@ -12,14 +12,14 @@ import org.springframework.stereotype.Component;
 
 @Component("noticesDao")
 public class NoticesDAO {
-	
+
 	private JdbcTemplate jdbc;
-	
+
 	@Autowired
-	public void setDataSource(DataSource jdbc){
+	public void setDataSource(DataSource jdbc) {
 		this.jdbc = new JdbcTemplate(jdbc);
 	}
-	
+
 	public List<Notice> getNotices() {
 		return jdbc.query("SELECT * FROM notices", new RowMapper<Notice>() {
 
@@ -31,7 +31,7 @@ public class NoticesDAO {
 				notice.setText(rs.getString("text"));
 				return notice;
 			}
-			
+
 		});
 	}
 }
