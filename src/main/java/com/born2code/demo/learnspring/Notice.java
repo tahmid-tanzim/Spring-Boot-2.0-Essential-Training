@@ -14,6 +14,13 @@ public class Notice {
 		this.name = name;
 		this.email = email;
 		this.text = text;
+	}	
+	
+	public Notice(int id, String name, String email, String text) {
+		this.id = id;
+		this.name = name;
+		this.email = email;
+		this.text = text;
 	}
 
 	public int getId() {

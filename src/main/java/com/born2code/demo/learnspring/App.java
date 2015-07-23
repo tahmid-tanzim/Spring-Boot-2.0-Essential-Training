@@ -21,8 +21,8 @@ public class App {
 			// System.out.println(noticesDao.delete(3) ? "Deleted ID: 3
 			// Successfully!" : "Sorry! Cannot delete");
 
-			Notice notice1 = new Notice("Prince", "prince@gmail.com", "Thy Shall thao!");
-			noticesDao.create(notice1);
+			Notice notice1 = new Notice(8, "Roby", "roby@gmail.com", "Hello Roby!");
+			noticesDao.update(notice1);
 
 			List<Notice> notices = noticesDao.getNotices();
 			for (Notice notice : notices) {
