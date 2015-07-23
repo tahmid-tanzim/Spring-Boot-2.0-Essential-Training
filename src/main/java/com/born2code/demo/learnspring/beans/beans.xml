@@ -6,14 +6,15 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd">
 
-<!-- 	<bean id="parrot" class="com.born2code.demo.learnspring.Parrot">
-		<property name="id" value="${jdbc.user}"></property>
-		<property name="speech" value="${jdbc.password}"></property>
-	</bean> -->
-
 	<context:property-placeholder
 		location="com/born2code/demo/learnspring/props/jdbc.properties" />
-	<context:component-scan
-		base-package="com.born2code.demo.learnspring">
+	<context:component-scan base-package="com.born2code.demo.learnspring">
 	</context:component-scan>
+
+	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
+		<property name="driverClassName" value="${jdbc.deiver}"></property>
+		<property name="url" value="${jdbc.url}"></property>
+		<property name="username" value="${jdbc.username}"></property>
+		<property name="password" value="${jdbc.password}"></property>
+	</bean>
 </beans>
