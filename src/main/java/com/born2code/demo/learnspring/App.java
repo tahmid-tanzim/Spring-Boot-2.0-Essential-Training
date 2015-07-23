@@ -1,5 +1,6 @@
 package com.born2code.demo.learnspring;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.context.ApplicationContext;
@@ -21,8 +22,16 @@ public class App {
 			// System.out.println(noticesDao.delete(3) ? "Deleted ID: 3
 			// Successfully!" : "Sorry! Cannot delete");
 
-			Notice notice1 = new Notice(8, "Roby", "roby@gmail.com", "Hello Roby!");
-			noticesDao.update(notice1);
+			Notice notice1 = new Notice("Roby1", "roby1@gmail.com", "Hello Roby!");
+			Notice notice2 = new Notice("Roby2", "roby2@gmail.com", "Hello Roby!");
+			Notice notice3 = new Notice("Roby3", "roby3@gmail.com", "Hello Roby!");
+
+			List<Notice> noticeList = new ArrayList<Notice>();
+			noticeList.add(notice1);
+			noticeList.add(notice2);
+			noticeList.add(notice3);
+
+			noticesDao.create(noticeList);
 
 			List<Notice> notices = noticesDao.getNotices();
 			for (Notice notice : notices) {

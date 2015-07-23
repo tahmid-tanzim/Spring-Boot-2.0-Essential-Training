@@ -12,6 +12,8 @@ import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.BeanPropertySqlParameterSource;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
+import org.springframework.jdbc.core.namedparam.SqlParameterSource;
+import org.springframework.jdbc.core.namedparam.SqlParameterSourceUtils;
 import org.springframework.stereotype.Component;
 
 @Component("noticesDao")
@@ -45,6 +47,11 @@ public class NoticesDAO {
 		return jdbc.update("DELETE FROM notices WHERE id = :noticeId", params) == 1;
 	}
 
+	public int[] create(List<Notice> notices) {
+		SqlParameterSource[] params = SqlParameterSourceUtils.createBatch(notices.toArray());
+		return jdbc.batchUpdate("INSERT INTO notices (name, email, text) VALUES (:name, :email, :text)", params);
+	}
+
 	public boolean create(Notice notice) {
 		BeanPropertySqlParameterSource params = new BeanPropertySqlParameterSource(notice);
 		return jdbc.update("INSERT INTO notices (name, email, text) VALUES (:name, :email, :text)", params) == 1;
@@ -53,8 +60,8 @@ public class NoticesDAO {
 	public boolean update(Notice notice) {
 		BeanPropertySqlParameterSource params = new BeanPropertySqlParameterSource(notice);
 		return jdbc.update("UPDATE notices SET name=:name, email=:email, text=:text WHERE id=:id", params) == 1;
-	}	
-	
+	}
+
 	public Notice getNotice(int id) {
 
 		MapSqlParameterSource params = new MapSqlParameterSource();
