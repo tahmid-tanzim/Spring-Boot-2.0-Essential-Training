@@ -6,6 +6,16 @@ public class Notice {
 	private String email;
 	private String text;
 
+	public Notice() {
+
+	}
+
+	public Notice(String name, String email, String text) {
+		this.name = name;
+		this.email = email;
+		this.text = text;
+	}
+
 	public int getId() {
 		return id;
 	}

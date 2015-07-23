@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.expression.spel.ast.BooleanLiteral;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
+import org.springframework.jdbc.core.namedparam.BeanPropertySqlParameterSource;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.stereotype.Component;
@@ -37,13 +38,19 @@ public class NoticesDAO {
 		});
 	}
 
-	public boolean delete (int id){
+	public boolean delete(int id) {
 		MapSqlParameterSource params = new MapSqlParameterSource();
 		params.addValue("noticeId", id);
-		
+
 		return jdbc.update("DELETE FROM notices WHERE id = :noticeId", params) == 1;
 	}
-	
+
+	public boolean create(Notice notice) {
+		BeanPropertySqlParameterSource params = new BeanPropertySqlParameterSource(notice);
+
+		return jdbc.update("INSERT INTO notices (name, email, text) VALUES (:name, :email, :text)", params) == 1;
+	}
+
 	public Notice getNotice(int id) {
 
 		MapSqlParameterSource params = new MapSqlParameterSource();

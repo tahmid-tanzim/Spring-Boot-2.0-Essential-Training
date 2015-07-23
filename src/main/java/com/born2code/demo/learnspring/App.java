@@ -18,13 +18,17 @@ public class App {
 		NoticesDAO noticesDao = (NoticesDAO) context.getBean("noticesDao");
 
 		try {
-			System.out.println(noticesDao.delete(3) ? "Deleted ID: 3 Successfully!" : "Sorry! Cannot delete");
-			
+			// System.out.println(noticesDao.delete(3) ? "Deleted ID: 3
+			// Successfully!" : "Sorry! Cannot delete");
+
+			Notice notice1 = new Notice("Prince", "prince@gmail.com", "Thy Shall thao!");
+			noticesDao.create(notice1);
+
 			List<Notice> notices = noticesDao.getNotices();
 			for (Notice notice : notices) {
 				System.out.println(notice);
 			}
-			
+
 			Notice notice = noticesDao.getNotice(6);
 			System.out.println("Notice ID: 6 -- " + notice);
 		} catch (CannotGetJdbcConnectionException ex) {
