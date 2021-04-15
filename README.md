@@ -1,1 +1,3 @@
-# Spring Framework tutorial http://learn.livingoncodes.com/course/enterprise-java-with-spring-bangla/
+# Spring Boot 2.0 Essential Training
+
+Course URL - https://www.linkedin.com/learning/spring-boot-2-0-essential-training-2
