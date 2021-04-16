@@ -1,5 +1,6 @@
 package com.one.eleven.roomwebapp.service;
 
+import com.one.eleven.roomwebapp.data.RoomRepository;
 import com.one.eleven.roomwebapp.models.Room;
 import org.springframework.stereotype.Service;
 
@@ -8,15 +9,13 @@ import java.util.List;
 
 @Service
 public class RoomService {
-    private static final List<Room> rooms = new ArrayList<>();
+    private final RoomRepository roomRepository;
 
-    static {
-        for (int i = 0; i < 10; i++) {
-            rooms.add(new Room(i, "Room " + i, "R" + i, "Qi"));
-        }
+    public RoomService(RoomRepository roomRepository) {
+        this.roomRepository = roomRepository;
     }
 
     public List<Room> getAllRooms() {
-        return rooms;
+        return roomRepository.findAll();
     }
 }
